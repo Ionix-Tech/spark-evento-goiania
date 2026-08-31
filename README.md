@@ -43,15 +43,39 @@ Os logos Ganplo e HUB Cerrado foram extraídos da peça original (branco sobre
 transparente). Se aparecerem os arquivos vetoriais, substituir
 `arte/logo_ganplo.png` e `arte/logo_hubcerrado.png`.
 
-## Deploy
+## Deploy em produção
+
+Site estático, sem build e sem dependência. O `netlify.toml` já traz
+`publish = "."` e build vazio.
+
+**Opção A — conectar este repo no Netlify (recomendado)**
+
+Add new site → Import an existing project → GitHub → `IonixAdmin/spark-evento-goiania`.
+Não precisa preencher build command nem publish directory: vêm do `netlify.toml`.
+A partir daí, todo push na `main` republica sozinho.
+
+**Opção B — deploy manual pela CLI**
 
 ```
+npm i -g netlify-cli
 netlify deploy --prod --dir=.
 ```
 
-O formulário usa **Netlify Forms** (`data-netlify="true"`, name `inscricao-evento-goiania`).
-O Netlify só registra o form no build do site — em deploy manual, conferir em
-Site settings → Forms se `inscricao-evento-goiania` aparece na lista.
+### Formulário de inscrição
+
+As inscrições usam **Netlify Forms** — `data-netlify="true"`, name
+`inscricao-evento-goiania`. O Netlify registra o form ao processar o HTML no
+deploy, então depois de subir vale conferir em **Site configuration → Forms**
+se `inscricao-evento-goiania` aparece na lista. É lá que caem as inscrições, e
+é lá que se liga a notificação por e-mail a cada envio.
+
+### Sobre o site que já está no ar
+
+A versão anterior roda em `papaya-squirrel-5dc4d7.netlify.app`. Se esse link já
+circulou, o caminho mais seguro é apontar **esse mesmo site** para este repo
+(Site configuration → Build & deploy → Link repository): o endereço continua
+valendo e as inscrições já recebidas seguem no mesmo form. Criando um site novo,
+o link muda e o histórico do form fica no site antigo.
 
 ## Assets
 
