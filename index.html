@@ -38,10 +38,11 @@
         <div class="rule"></div>
         <p class="lead">Agora você pode. Com a Ionix.</p>
         <p class="sub">Experimente o evento mais realista e automatizado que você já viu, pensado por nós, criado por agentes.</p>
+        <p class="hero-urgency">Vagas limitadas.</p>
         <button class="btn" onclick="openModal()">Fazer minha inscrição</button>
       </div>
       <div class="hero-art">
-        <img src="assets/evento-goiania.jpg" alt="O que é hype e o que é real na IA? Palestra com Oliver Cunningham, 21 de setembro, HUB Cerrado, Goiânia/GO">
+        <img src="assets/evento-goiania.jpg" alt="O que é hype e o que é real na IA? Palestra com Oliver Cunningham e mediação de Marcelo Aquino, 21 de setembro, HUB Cerrado, Goiânia/GO">
       </div>
     </div>
 
@@ -50,15 +51,17 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
         <span><b>21 de setembro</b> · 09h</span>
       </div>
-      <div class="info-sep"></div>
       <div class="info-item">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
         <span><b>HUB Cerrado</b> · Goiânia/GO</span>
       </div>
-      <div class="info-sep"></div>
       <div class="info-item">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
         <span><b>Oliver Cunningham</b> · palestrante</span>
+      </div>
+      <div class="info-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v4M8 21h8"/></svg>
+        <span><b>Marcelo Aquino</b> · mediador</span>
       </div>
     </div>
   </div>
@@ -73,13 +76,13 @@
     </div>
     <div class="speaker">
       <div class="speaker-photo">
-        <img src="assets/oliver-cunningham.jpg" alt="Oliver Cunningham">
+        <img src="assets/oliver-cunningham-ppt.png" alt="Oliver Cunningham, sócio da Ionix e palestrante do evento">
       </div>
       <div>
         <p class="speaker-role">Palestrante</p>
         <h3>Oliver Cunningham</h3>
         <div class="rule"></div>
-        <p class="speaker-bio">CEO e estrategista da Ionix. Depois de anos automatizando processos de empresas de verdade, ele separa o que já resolve problema do que é só promessa vazia — sem venda milagrosa, com casos reais de quem trocou o achismo por número.</p>
+        <p class="speaker-bio">Oliver Cunningham é sócio da Ionix, com 34 anos de carreira em consultoria e transformação de negócios. Atuou em posições de liderança na KPMG, com foco em serviços financeiros, transformação digital, inovação e produtos digitais. Também é professor convidado da FGV, conselheiro e sócio do Ecossistema GoNew. Em Goiânia, Oliver mostra como a inteligência artificial pode assumir processos repetitivos e ajudar empresas a ganhar eficiência no dia a dia.</p>
       </div>
     </div>
   </div>
@@ -210,7 +213,7 @@
 
         <div class="consent">
           <input type="checkbox" id="consent" name="consentimento" required>
-          <label for="consent">Autorizo a Ionix a entrar em contato comigo por WhatsApp e e-mail sobre este evento. Meus dados não são compartilhados com terceiros e posso pedir a exclusão a qualquer momento.</label>
+          <label for="consent">Autorizo a Ionix a entrar em contato comigo por e-mail sobre este evento. Meus dados não são compartilhados com terceiros e posso pedir a exclusão a qualquer momento.</label>
         </div>
 
         <button class="btn" type="submit" id="submitBtn">
@@ -218,7 +221,7 @@
           <span class="spinner" aria-hidden="true"></span>
         </button>
 
-        <p class="form-error" id="formError">Não conseguimos enviar sua inscrição agora. Tenta de novo em instantes, ou fala com a gente pelo WhatsApp.</p>
+        <p class="form-error" id="formError">Não conseguimos enviar sua inscrição agora. Tente novamente em instantes.</p>
       </form>
     </div>
 
@@ -227,7 +230,7 @@
         <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5.5 5.5L20 6.5"/></svg>
       </div>
       <h3>Inscrição confirmada.</h3>
-      <p>Você vai receber os detalhes do evento no WhatsApp e no e-mail cadastrados.</p>
+      <p>A equipe da Ionix usará o e-mail informado para enviar as informações do evento.</p>
       <button class="btn btn-ghost" onclick="closeModal()">Fechar</button>
     </div>
   </div>

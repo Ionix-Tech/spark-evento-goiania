@@ -1,8 +1,8 @@
 # Spark — evento Goiânia (21/09)
 
 Landing do evento presencial **"O que é hype e o que é real na IA?"** — palestra do
-Oliver Cunningham no HUB Cerrado, Goiânia/GO, 21 de setembro, 09h. Realização
-Ganplo · Ionix.
+Oliver Cunningham, com mediação de Marcelo Aquino, no HUB Cerrado, Goiânia/GO,
+21 de setembro, 09h. Realização Ganplo · Ionix.
 
 Reconstrução da landing anterior (`papaya-squirrel-5dc4d7.netlify.app`) na
 **identidade visual canônica da Ionix**: violeta `#A855F7`, fundo `#0A0A0A`,
@@ -69,6 +69,10 @@ deploy, então depois de subir vale conferir em **Site configuration → Forms**
 se `inscricao-evento-goiania` aparece na lista. É lá que caem as inscrições, e
 é lá que se liga a notificação por e-mail a cada envio.
 
+O formulário mantém nome, WhatsApp, e-mail, empresa, setor, cargo e faturamento.
+A comunicação inicial informada ao inscrito é feita somente por e-mail; o campo
+de WhatsApp permanece como dado de cadastro, sem promessa de contato por esse canal.
+
 ### Sobre o site que já está no ar
 
 A versão anterior roda em `papaya-squirrel-5dc4d7.netlify.app`. Se esse link já
@@ -79,10 +83,11 @@ o link muda e o histórico do form fica no site antigo.
 
 ## Assets
 
-- `evento-goiania.jpg` — arte oficial do evento (Ganplo)
-- `oliver-cunningham.jpg` — foto real do Oliver, recorte 4:5 de
-  `Ionix Tech/Marketing/Fotos Perfil Sócio/Oliver.jpeg` (Drive). A versão de
-  origem tem 800×800; se aparecer o arquivo em alta da mesma sessão, refazer o
-  crop a partir dele.
+- `evento-goiania.jpg` — arte do hero na identidade Ionix, com a foto do PPT,
+  Oliver como palestrante e Marcelo Aquino como mediador
+- `oliver-cunningham-ppt.png` — foto indicada pela Maeli e extraída do mini-CV
+  `OEC Mini CV.pptx`; usada na seção do palestrante com recorte responsivo em CSS.
+- `oliver-cunningham.jpg` — foto anterior, preservada no repo como referência e
+  sem uso na landing atual.
 - `ionix-logo-dark.png` — logo Ionix negativo (fundo escuro)
 - `ionix-logo-light.png` — logo Ionix positivo (fundo claro), não usado hoje

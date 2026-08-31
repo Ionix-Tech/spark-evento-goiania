@@ -150,6 +150,13 @@ h1 {
   color: var(--muted);
 }
 
+.hero-urgency {
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--violet-light);
+}
+
 .hero-art {
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -195,10 +202,9 @@ h1 {
 /* ---------- Infobar ---------- */
 
 .infobar {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: center;
-  gap: 12px 28px;
   padding: 22px 26px;
   margin-bottom: 20px;
   background: var(--surface);
@@ -210,18 +216,19 @@ h1 {
   display: flex;
   align-items: center;
   gap: 11px;
-  font-size: 14px;
+  min-width: 0;
+  padding: 0 14px;
+  font-size: 13px;
   color: var(--muted);
 }
 
+.info-item:first-child { padding-left: 0; }
+.info-item:last-child { padding-right: 0; }
+.info-item + .info-item { border-left: 1px solid var(--line); }
+.info-item span { white-space: nowrap; }
+
 .info-item b { color: var(--text); font-weight: 600; }
 .info-item svg { flex: 0 0 auto; color: var(--violet); }
-
-.info-sep {
-  width: 1px;
-  height: 22px;
-  background: var(--line);
-}
 
 /* ---------- Seções ---------- */
 
@@ -251,8 +258,6 @@ section { padding: 76px 0; }
 .light .section-head p,
 .light .speaker-bio { color: var(--muted-dark); }
 
-.light .info-sep { background: #E5E7EB; }
-
 /* ---------- Palestrante ---------- */
 
 .speaker {
@@ -273,6 +278,7 @@ section { padding: 76px 0; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 18%;
   display: block;
 }
 
@@ -589,6 +595,9 @@ input::placeholder { color: #5A5A5A; }
 @media (max-width: 940px) {
   .hero { grid-template-columns: 1fr; gap: 40px; padding: 40px 0 48px; }
   .hero-art { max-width: 520px; }
+  .infobar { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 18px; }
+  .info-item:nth-child(odd) { padding-left: 0; border-left: none; }
+  .info-item:nth-child(even) { padding-right: 0; }
   .roteiro { grid-template-columns: repeat(2, 1fr); }
   .speaker { grid-template-columns: 240px 1fr; gap: 34px; }
 }
@@ -600,8 +609,8 @@ input::placeholder { color: #5A5A5A; }
 @media (max-width: 680px) {
   .wrap { padding: 0 20px; }
   section { padding: 56px 0; }
-  .info-sep { display: none; }
-  .infobar { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .infobar { grid-template-columns: 1fr; align-items: start; gap: 14px; }
+  .info-item { padding: 0; border-left: none !important; }
   .roteiro { grid-template-columns: 1fr; }
   .speaker { grid-template-columns: 1fr; gap: 26px; }
   .speaker-photo { max-width: 260px; }

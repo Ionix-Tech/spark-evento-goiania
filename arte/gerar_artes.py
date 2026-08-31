@@ -15,13 +15,15 @@ FORMATOS = {
       .eyebrow{ font-size:15px; }
       h1{ margin-top:32px; max-width:530px; font-size:66px; }
       .sub{ margin-top:24px; max-width:350px; font-size:22px; }
-      .foto{ right:-12px; bottom:214px; width:468px; }
+      .foto{ right:-32px; bottom:170px; width:505px; }
       .pe{ height:250px; }
       .rodape{ left:60px; right:60px; bottom:50px; }
       .rodape .rule{ margin-bottom:20px; }
       .rule{ width:72px; height:3px; }
       .rotulo{ font-size:13px; }
       .nome{ font-size:38px; }
+      .pessoas{ gap:42px; padding-bottom:32px; }
+      .mediador .nome{ font-size:23px; }
       .infos{ gap:48px; padding-bottom:28px; }
       .info svg{ width:26px; height:26px; }
       .info .rotulo{ font-size:11px; }
@@ -38,12 +40,14 @@ FORMATOS = {
       .eyebrow{ font-size:19px; }
       h1{ margin-top:46px; max-width:720px; font-size:92px; }
       .sub{ margin-top:34px; max-width:470px; font-size:30px; }
-      .foto{ right:-16px; bottom:400px; width:660px; }
+      .foto{ right:-46px; bottom:330px; width:720px; }
       .pe{ height:420px; }
       .glow-a{ top:300px; }
       .rodape{ left:84px; right:84px; bottom:150px; }
       .rodape .rule{ margin-bottom:30px; }
       .nome{ font-size:54px; }
+      .pessoas{ gap:70px; padding-bottom:46px; }
+      .mediador .nome{ font-size:31px; }
       .infos{ gap:72px; padding-bottom:40px; }
       .info .valor{ font-size:27px; }
       .creditos{ padding-top:36px; }
@@ -59,6 +63,10 @@ for nome, (w, h, extra) in FORMATOS.items():
         html = html.replace('</style>', extra + '\n</style>')
     tmp = os.path.join(BASE, '_fmt_%s.html' % nome)
     io.open(tmp, 'w', encoding='utf-8').write(html)
+
+    if '--html-only' in sys.argv:
+        print('%-14s %dx%d  HTML preparado' % (nome, w, h))
+        continue
 
     png = os.path.join(BASE, '_fmt_%s.png' % nome)
     subprocess.run([CHROME, '--headless', '--disable-gpu', '--hide-scrollbars',
