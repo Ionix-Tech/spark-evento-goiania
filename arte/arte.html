@@ -27,7 +27,14 @@
   .glow-b{ left:-320px; top:-300px; width:900px; height:900px;
     background:radial-gradient(closest-side, rgba(6,182,212,.14), transparent 70%); }
 
-  .foto{ position:absolute; right:-40px; bottom:205px; width:620px; }
+  .foto{
+    position:absolute;
+    right:-40px;
+    bottom:205px;
+    width:620px;
+    -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 54%,rgba(0,0,0,.88) 59%,transparent 68%);
+    mask-image:linear-gradient(to bottom,#000 0%,#000 54%,rgba(0,0,0,.88) 59%,transparent 68%);
+  }
 
   /* escurece o pé pra data, local e créditos lerem por cima da foto */
   .pe{
