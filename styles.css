@@ -1,0 +1,613 @@
+/* Spark — O que é hype e o que é real na IA? · Goiânia, 21/09
+   Identidade Ionix: violeta #A855F7 · gradient violeta→magenta→ciano · fundo #0A0A0A
+   Tipografia oficial: Montserrat (headlines/body) + JetBrains Mono (eyebrows) */
+
+:root {
+  --violet: #A855F7;
+  --violet-dark: #9333EA;
+  --violet-light: #C084FC;
+  --magenta: #EC4899;
+  --cyan: #06B6D4;
+
+  --bg: #0A0A0A;
+  --surface: #131313;
+  --line: #262626;
+  --light: #FAFAFA;
+
+  --text: #FFFFFF;
+  --text-dark: #111111;
+  --muted: #9CA3AF;
+  --muted-dark: #6B7280;
+  --danger: #F87171;
+
+  --sans: Montserrat, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --mono: "JetBrains Mono", Consolas, ui-monospace, monospace;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding-bottom: calc(6px + env(safe-area-inset-bottom));
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+img { max-width: 100%; }
+
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ---------- Eyebrow / rule / headline ---------- */
+
+.eyebrow {
+  margin: 0 0 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--violet);
+}
+
+.rule {
+  width: 80px;
+  height: 3px;
+  margin: 26px 0 22px;
+  background: var(--violet);
+}
+
+h1, h2, h3 {
+  font-family: var(--sans);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+/* ---------- Topbar ---------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 30px 0 8px;
+}
+
+.logo { height: 24px; width: auto; display: block; }
+
+.topbar-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+}
+
+/* ---------- Hero ---------- */
+
+.hero-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brilho violeta — motivo de capa dark */
+.hero-shell::before {
+  content: "";
+  position: absolute;
+  top: -320px;
+  right: -140px;
+  width: 900px;
+  height: 700px;
+  background: radial-gradient(closest-side, rgba(168, 85, 247, 0.24), transparent);
+  pointer-events: none;
+}
+
+.hero-shell > * { position: relative; }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.22fr 0.78fr;
+  gap: 60px;
+  align-items: center;
+  padding: 52px 0 56px;
+}
+
+h1 {
+  font-size: clamp(32px, 4.4vw, 50px);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.lead {
+  margin: 22px 0 18px;
+  font-size: clamp(19px, 2.2vw, 24px);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--violet);
+  letter-spacing: -0.01em;
+}
+
+.sub {
+  margin: 0 0 32px;
+  max-width: 480px;
+  font-size: 16px;
+  color: var(--muted);
+}
+
+.hero-art {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  line-height: 0;
+  max-width: 400px;
+  margin-left: auto;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.hero-art img { width: 100%; display: block; }
+
+/* ---------- Botão ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 32px;
+  background: var(--violet);
+  border: none;
+  border-radius: 9px;
+  color: #FFFFFF;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn:hover:not(:disabled) { background: var(--violet-dark); }
+.btn:disabled { opacity: 0.72; cursor: default; }
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid var(--violet);
+  color: var(--violet-light);
+}
+
+.btn-ghost:hover { background: rgba(168, 85, 247, 0.12); }
+
+/* ---------- Infobar ---------- */
+
+.infobar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 28px;
+  padding: 22px 26px;
+  margin-bottom: 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.info-item b { color: var(--text); font-weight: 600; }
+.info-item svg { flex: 0 0 auto; color: var(--violet); }
+
+.info-sep {
+  width: 1px;
+  height: 22px;
+  background: var(--line);
+}
+
+/* ---------- Seções ---------- */
+
+section { padding: 76px 0; }
+
+.section-head { max-width: 720px; margin-bottom: 44px; }
+
+.section-head h2 {
+  font-size: clamp(26px, 3.4vw, 36px);
+  font-weight: 800;
+  line-height: 1.18;
+}
+
+.section-head p {
+  margin: 16px 0 0;
+  font-size: 17px;
+  color: var(--muted);
+}
+
+/* Bloco light — quebra de ritmo, padrão Ionix (dark impacto / light conteúdo) */
+
+.light {
+  background: var(--light);
+  color: var(--text-dark);
+}
+
+.light .section-head p,
+.light .speaker-bio { color: var(--muted-dark); }
+
+.light .info-sep { background: #E5E7EB; }
+
+/* ---------- Palestrante ---------- */
+
+.speaker {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.speaker-photo {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #EFEAF7;
+}
+
+.speaker-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.speaker-role {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--violet-dark);
+}
+
+.speaker h3 {
+  margin: 10px 0 0;
+  font-size: clamp(28px, 3.6vw, 38px);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.speaker .rule { margin: 20px 0 20px; }
+
+.speaker-bio {
+  margin: 0;
+  max-width: 560px;
+  font-size: 16px;
+}
+
+/* ---------- Roteiro ---------- */
+
+.roteiro {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.step {
+  padding: 28px 24px 30px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.step-num {
+  display: block;
+  margin-bottom: 18px;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--violet);
+}
+
+.step h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.step p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* ---------- CTA final ---------- */
+
+.cta {
+  padding: 60px 44px;
+  background: var(--violet-dark);
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+.cta h2 {
+  margin: 0;
+  font-size: clamp(26px, 3.4vw, 36px);
+  font-weight: 800;
+  line-height: 1.18;
+}
+
+.cta p {
+  margin: 16px auto 30px;
+  max-width: 520px;
+  font-size: 17px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.cta .btn {
+  background: #0A0A0A;
+  color: #FFFFFF;
+}
+
+.cta .btn:hover { background: #1F1F1F; }
+
+/* ---------- Rodapé ---------- */
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 40px 0 56px;
+  border-top: 1px solid var(--line);
+}
+
+.logo-sm { height: 18px; width: auto; display: block; opacity: 0.9; }
+
+.tagline {
+  margin: 12px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.support {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.9;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: right;
+}
+
+/* Faixa gradient assinatura — presente em todo artefato Ionix */
+.gradient-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--violet), var(--magenta), var(--cyan));
+  z-index: 40;
+}
+
+/* ---------- Modal ---------- */
+
+.modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  background: rgba(0, 0, 0, 0.78);
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.modal-backdrop.open { display: block; }
+
+.modal {
+  position: relative;
+  max-width: 560px;
+  margin: 40px auto;
+  padding: 34px 32px 32px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-close:hover { color: var(--text); }
+
+.modal h3 {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.modal-sub {
+  margin: 10px 0 26px;
+  font-size: 15px;
+  color: var(--muted);
+}
+
+/* ---------- Formulário ---------- */
+
+.field { margin-bottom: 18px; }
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.req { color: var(--violet); }
+
+input[type="text"], input[type="tel"], input[type="email"], select {
+  width: 100%;
+  padding: 13px 14px;
+  background: #0D0D0D;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 16px; /* 16px evita o zoom automático do iOS ao focar */
+  line-height: 1.4;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%239CA3AF' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 18px;
+  padding-right: 38px;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--violet);
+  box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.18);
+}
+
+input::placeholder { color: #5A5A5A; }
+
+.consent {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+  margin: 22px 0 4px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.consent input {
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--violet);
+}
+
+.consent label { margin: 0; font-weight: 400; cursor: pointer; }
+
+.hidden-field { position: absolute; left: -9999px; }
+
+.modal .btn { width: 100%; justify-content: center; margin-top: 22px; }
+
+.spinner {
+  display: none;
+  width: 17px;
+  height: 17px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #FFFFFF;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.loading .spinner { display: inline-block; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .spinner { animation-duration: 2s; }
+}
+
+.form-error {
+  display: none;
+  margin: 16px 0 0;
+  padding: 13px 15px;
+  background: rgba(248, 113, 113, 0.09);
+  border: 1px solid rgba(248, 113, 113, 0.32);
+  border-radius: 9px;
+  font-size: 14px;
+  color: #FCA5A5;
+}
+
+.form-error.show { display: block; }
+
+/* ---------- Sucesso ---------- */
+
+.success { text-align: center; padding: 20px 4px 8px; }
+
+.check {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 24px;
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--violet);
+  border-radius: 50%;
+  color: var(--violet);
+}
+
+.success h3 { margin-bottom: 12px; }
+.success p { margin: 0 0 26px; color: var(--muted); font-size: 15px; }
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 940px) {
+  .hero { grid-template-columns: 1fr; gap: 40px; padding: 40px 0 48px; }
+  .hero-art { max-width: 520px; }
+  .roteiro { grid-template-columns: repeat(2, 1fr); }
+  .speaker { grid-template-columns: 240px 1fr; gap: 34px; }
+}
+
+@media (max-width: 560px) {
+  .topbar-tag { display: none; }
+}
+
+@media (max-width: 680px) {
+  .wrap { padding: 0 20px; }
+  section { padding: 56px 0; }
+  .info-sep { display: none; }
+  .infobar { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .roteiro { grid-template-columns: 1fr; }
+  .speaker { grid-template-columns: 1fr; gap: 26px; }
+  .speaker-photo { max-width: 260px; }
+  .cta { padding: 44px 24px; }
+  .field-row { grid-template-columns: 1fr; gap: 0; }
+  .modal { padding: 30px 22px 26px; margin: 20px auto; }
+  footer { flex-direction: column; align-items: flex-start; }
+  .support { text-align: left; }
+}

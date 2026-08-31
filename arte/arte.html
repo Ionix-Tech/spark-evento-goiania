@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --violet:#A855F7; --magenta:#EC4899; --cyan:#06B6D4;
+    --bg:#0A0A0A; --muted:#9CA3AF;
+    --sans:Montserrat, Arial, sans-serif;
+    --mono:"JetBrains Mono", Consolas, monospace;
+  }
+  *{ box-sizing:border-box; margin:0; }
+  body{ background:#222; }
+
+  .card{
+    position:relative; width:1080px; height:1350px; overflow:hidden;
+    background:var(--bg); color:#fff; font-family:var(--sans);
+  }
+
+  /* atmosfera: brilho violeta atrás do palestrante, frio no alto à esquerda */
+  .glow-a,.glow-b{ position:absolute; pointer-events:none; }
+  .glow-a{ right:-240px; top:120px; width:1080px; height:1080px;
+    background:radial-gradient(closest-side, rgba(168,85,247,.42), transparent 72%); }
+  .glow-b{ left:-320px; top:-300px; width:900px; height:900px;
+    background:radial-gradient(closest-side, rgba(6,182,212,.14), transparent 70%); }
+
+  .foto{ position:absolute; right:-14px; bottom:250px; width:572px; }
+
+  /* escurece o pé pra data, local e créditos lerem por cima da foto */
+  .pe{
+    position:absolute; left:0; right:0; bottom:0; height:300px;
+    background:linear-gradient(to top, #0A0A0A 46%, rgba(10,10,10,.82) 74%, transparent);
+  }
+
+  .topo{ position:absolute; top:0; left:0; right:0; padding:76px 76px 0; }
+
+  .eyebrow{
+    font-family:var(--mono); font-size:17px; font-weight:500;
+    text-transform:uppercase; letter-spacing:.22em; color:var(--violet);
+  }
+
+  h1{
+    margin-top:40px; max-width:648px;
+    font-size:80px; font-weight:800; line-height:1.02; letter-spacing:-.025em;
+  }
+  h1 em{ font-style:italic; color:var(--violet); }
+
+  .sub{
+    margin-top:30px; max-width:412px;
+    font-size:27px; font-weight:400; line-height:1.34; color:#D4D4D8;
+  }
+
+  .rule{ width:88px; height:4px; background:var(--violet); }
+
+  .palestrante{ padding-bottom:44px; }
+  .rotulo{
+    font-family:var(--mono); font-size:15px; font-weight:500;
+    text-transform:uppercase; letter-spacing:.22em; color:var(--violet);
+  }
+  .nome{ margin-top:8px; font-size:46px; font-weight:700; line-height:1.06; letter-spacing:-.02em; }
+
+  /* data e local ancorados no pé, em linha: fecham a composição e
+     equilibram o peso do retrato à direita */
+  .rodape{ position:absolute; z-index:3; left:76px; right:76px; bottom:62px; }
+  .rodape .rule{ margin-bottom:26px; }
+
+  .infos{ display:flex; gap:64px; padding-bottom:36px; }
+  .info{ display:flex; align-items:center; gap:18px; }
+  .info svg{ flex:0 0 auto; color:var(--violet); }
+  .info .rotulo{ font-size:13px; }
+  .info .valor{ margin-top:5px; font-size:24px; font-weight:600; }
+
+  .creditos{
+    display:flex; align-items:flex-end; gap:66px;
+    padding-top:32px; border-top:1px solid rgba(255,255,255,.14);
+  }
+  .credito .rotulo{ font-size:13px; color:var(--muted); letter-spacing:.2em; }
+  .marcas{ margin-top:16px; display:flex; align-items:center; gap:30px; }
+  .marcas img{ display:block; }
+  .m-ganplo{ height:30px; }
+  .m-ionix{ height:26px; }
+  .m-hub{ height:38px; }
+
+  .barra{
+    position:absolute; left:0; right:0; bottom:0; height:12px;
+    background:linear-gradient(90deg, var(--violet), var(--magenta), var(--cyan));
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="glow-a"></div>
+  <div class="glow-b"></div>
+
+  <img class="foto" src="oliver_arte.png" alt="">
+  <div class="pe"></div>
+
+  <div class="topo">
+    <div class="eyebrow">Spark · Evento presencial</div>
+
+    <h1>O que é<br><em>hype</em> e o que é<br><em>real</em> na <em>IA</em>?</h1>
+
+    <p class="sub">Confissões de dentro do boom da inteligência artificial.</p>
+  </div>
+
+  <div class="rodape">
+    <div class="rule"></div>
+    <div class="palestrante">
+      <div class="rotulo">Palestrante</div>
+      <div class="nome">Oliver Cunningham</div>
+    </div>
+
+    <div class="infos">
+      <div class="info">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+        <div>
+          <div class="rotulo">Data</div>
+          <div class="valor">21 de setembro · 09h</div>
+        </div>
+      </div>
+      <div class="info">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <div>
+          <div class="rotulo">Local</div>
+          <div class="valor">HUB Cerrado · Goiânia/GO</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="creditos">
+      <div class="credito">
+        <div class="rotulo">Realização</div>
+        <div class="marcas">
+          <img class="m-ganplo" src="logo_ganplo.png" alt="Ganplo">
+          <img class="m-ionix" src="ionix-logo-dark.png" alt="Ionix">
+        </div>
+      </div>
+      <div class="credito">
+        <div class="rotulo">Apoio</div>
+        <div class="marcas">
+          <img class="m-hub" src="logo_hubcerrado.png" alt="HUB Cerrado">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="barra"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+# temporários do export da arte
+arte/_fmt_*
+
+# sistema / editores
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# deploy
+.netlify/
+node_modules/
