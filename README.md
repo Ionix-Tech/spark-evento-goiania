@@ -2,7 +2,7 @@
 
 Landing do evento presencial **"O que é hype e o que é real na IA?"** — palestra do
 Oliver Cunningham, com mediação de Marcelo Aquino, no HUB Cerrado, Goiânia/GO,
-21 de setembro, 09h. Realização Ganplo · Ionix.
+21 de setembro, das 08h30 às 10h30. Realização Ganplo · Ionix.
 
 Reconstrução da landing anterior (`papaya-squirrel-5dc4d7.netlify.app`) na
 **identidade visual canônica da Ionix**: violeta `#A855F7`, fundo `#0A0A0A`,

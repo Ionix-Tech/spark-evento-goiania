@@ -1,6 +1,6 @@
 # Gera as variações de formato da arte do evento a partir de arte.html.
 # Cada formato só sobrescreve as medidas que mudam — o desenho é o mesmo.
-import io, os, subprocess, sys
+import io, os, subprocess, sys, time
 from PIL import Image
 
 BASE = os.path.dirname(os.path.abspath(__file__))
@@ -69,10 +69,24 @@ for nome, (w, h, extra) in FORMATOS.items():
         continue
 
     png = os.path.join(BASE, '_fmt_%s.png' % nome)
-    subprocess.run([CHROME, '--headless', '--disable-gpu', '--hide-scrollbars',
-                    '--virtual-time-budget=9000', '--window-size=%d,%d' % (w, h),
-                    '--screenshot=' + png, 'file:///' + tmp.replace('\\', '/')],
-                   capture_output=True)
+    if os.path.exists(png):
+        os.remove(png)
+
+    result = subprocess.run([
+        CHROME, '--headless=new', '--disable-gpu', '--hide-scrollbars', '--no-sandbox',
+        '--force-device-scale-factor=1', '--virtual-time-budget=9000',
+        '--window-size=%d,%d' % (w, h), '--screenshot=' + png,
+        'file:///' + tmp.replace('\\', '/')
+    ], capture_output=True, text=True)
+
+    # Em algumas instalações do Chrome no Windows, o processo principal termina
+    # antes de o arquivo ser efetivamente gravado. Nunca reutilize um PNG antigo.
+    for _ in range(50):
+        if os.path.exists(png) and os.path.getsize(png) > 0:
+            break
+        time.sleep(.1)
+    else:
+        raise RuntimeError('Falha ao gerar %s: %s' % (nome, result.stderr.strip()))
 
     jpg = os.path.join(BASE, 'arte-%s.jpg' % nome)
     Image.open(png).convert('RGB').save(jpg, quality=92, optimize=True, progressive=True)
