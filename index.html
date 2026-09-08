@@ -39,7 +39,7 @@
         <p class="lead">Agora você pode. Com a Ionix.</p>
         <p class="sub">Experimente o evento mais realista e automatizado que você já viu, pensado por nós, criado por agentes.</p>
         <p class="hero-urgency">Vagas limitadas.</p>
-        <button class="btn" onclick="openModal()">Fazer minha inscrição</button>
+        <a class="btn" style="text-decoration:none" href="https://app.techconversa.com.br/form/Pr4lBjSN" data-tc-form="Pr4lBjSN">Fazer minha inscrição</a>
       </div>
       <div class="hero-art">
         <img src="assets/evento-goiania.jpg" alt="O que é hype e o que é real na IA? Palestra com Oliver Cunningham e mediação de Marcelo Aquino, 21 de setembro, HUB Cerrado, Goiânia/GO">
@@ -125,7 +125,7 @@
     <div class="cta">
       <h2>Vagas limitadas. Goiânia, 21 de setembro.</h2>
       <p>Garanta a sua e leve o diagnóstico da sua empresa para dentro do evento.</p>
-      <button class="btn" onclick="openModal()">Fazer minha inscrição</button>
+      <a class="btn" style="text-decoration:none" href="https://app.techconversa.com.br/form/Pr4lBjSN" data-tc-form="Pr4lBjSN">Fazer minha inscrição</a>
     </div>
   </div>
 </section>
@@ -142,164 +142,17 @@
 
 <div class="gradient-bar"></div>
 
-<!-- Modal de inscrição -->
-<div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()" aria-label="Fechar">&times;</button>
-
-    <div id="formView">
-      <p class="eyebrow">Inscrição</p>
-      <h3 id="modalTitle">Garanta sua vaga.</h3>
-      <p class="modal-sub">Preencha seus dados para o evento de Goiânia, 21 de setembro.</p>
-
-      <form name="inscricao-evento-goiania" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="eventForm">
-        <input type="hidden" name="form-name" value="inscricao-evento-goiania">
-        <p class="hidden-field"><label>Não preencha: <input name="bot-field"></label></p>
-
-        <div class="field">
-          <label for="nome">Nome <span class="req">*</span></label>
-          <input type="text" id="nome" name="nome" autocomplete="name" required>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label for="whatsapp">WhatsApp <span class="req">*</span></label>
-            <input type="tel" id="whatsapp" name="whatsapp" placeholder="(62) 99999-9999" autocomplete="tel" required>
-          </div>
-          <div class="field">
-            <label for="email">E-mail <span class="req">*</span></label>
-            <input type="email" id="email" name="email" autocomplete="email" required>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="empresa">Empresa <span class="req">*</span></label>
-          <input type="text" id="empresa" name="empresa" autocomplete="organization" required>
-        </div>
-
-        <div class="field-row">
-          <div class="field">
-            <label for="setor">Setor <span class="req">*</span></label>
-            <select id="setor" name="setor" required>
-              <option value="" selected disabled>Selecione</option>
-              <option>Indústria</option>
-              <option>Varejo e comércio</option>
-              <option>Serviços</option>
-              <option>Saúde</option>
-              <option>Construção e engenharia</option>
-              <option>Agronegócio</option>
-              <option>Financeiro</option>
-              <option>Tecnologia</option>
-              <option>Outro</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="cargo">Cargo <span class="req">*</span></label>
-            <input type="text" id="cargo" name="cargo" autocomplete="organization-title" required>
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="tamanho">Faturamento anual <span class="req">*</span></label>
-          <select id="tamanho" name="tamanho" required>
-            <option value="" selected disabled>Selecione</option>
-            <option>Até R$ 2 milhões</option>
-            <option>R$ 2 a 10 milhões</option>
-            <option>R$ 10 a 50 milhões</option>
-            <option>R$ 50 a 200 milhões</option>
-            <option>Acima de R$ 200 milhões</option>
-          </select>
-        </div>
-
-        <div class="consent">
-          <input type="checkbox" id="consent" name="consentimento" required>
-          <label for="consent">Autorizo a Ionix a entrar em contato comigo por e-mail sobre este evento. Meus dados não são compartilhados com terceiros e posso pedir a exclusão a qualquer momento.</label>
-        </div>
-
-        <button class="btn" type="submit" id="submitBtn">
-          <span>Confirmar inscrição</span>
-          <span class="spinner" aria-hidden="true"></span>
-        </button>
-
-        <p class="form-error" id="formError">Não conseguimos enviar sua inscrição agora. Tente novamente em instantes.</p>
-      </form>
-    </div>
-
-    <div id="successView" class="success" style="display:none;">
-      <div class="check">
-        <svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5.5 5.5L20 6.5"/></svg>
-      </div>
-      <h3>Inscrição confirmada.</h3>
-      <p>A equipe da Ionix usará o e-mail informado para enviar as informações do evento.</p>
-      <button class="btn btn-ghost" onclick="closeModal()">Fechar</button>
-    </div>
-  </div>
-</div>
-
+<!-- Inscrições centralizadas no TechConversa; o link direto funciona sem o widget. -->
+<p style="text-align:center;padding:16px">
+  Não conseguiu abrir a inscrição?
+  <a href="https://app.techconversa.com.br/form/Pr4lBjSN">Acesse o formulário diretamente.</a>
+</p>
 <script>
-  var backdrop = document.getElementById('modalBackdrop');
-
-  function openModal(){
-    backdrop.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    var f = document.getElementById('nome');
-    if (f && f.offsetParent !== null) f.focus();
+  // Preserva links antigos compartilhados com #inscricao.
+  if (location.hash === '#inscricao') {
+    history.replaceState(null, '', '#form-Pr4lBjSN');
   }
-
-  function closeModal(){
-    backdrop.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  backdrop.addEventListener('click', function(e){
-    if (e.target === this) closeModal();
-  });
-
-  document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape') closeModal();
-  });
-
-  // Link direto pro formulário: .../#inscricao abre o modal já na chegada
-  if (location.hash === '#inscricao') openModal();
-
-  function encode(data){
-    return Object.keys(data).map(function(k){
-      return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
-    }).join('&');
-  }
-
-  document.getElementById('eventForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    var form = e.target;
-    var btn = document.getElementById('submitBtn');
-    var err = document.getElementById('formError');
-
-    err.classList.remove('show');
-    btn.classList.add('loading');
-    btn.disabled = true;
-
-    var payload = {};
-    new FormData(form).forEach(function(value, key){ payload[key] = value; });
-
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode(payload)
-    })
-    .then(function(res){
-      if (!res.ok) throw new Error(res.status);
-      document.getElementById('formView').style.display = 'none';
-      document.getElementById('successView').style.display = 'block';
-    })
-    .catch(function(){
-      err.classList.add('show');
-    })
-    .finally(function(){
-      btn.classList.remove('loading');
-      btn.disabled = false;
-    });
-  });
 </script>
-
+<script defer src="https://app.techconversa.com.br/api/tech-forms/embed/RJ7crgHoGbmQNxQMmp3YHCth2Ntr093Z/script.js"></script>
 </body>
 </html>

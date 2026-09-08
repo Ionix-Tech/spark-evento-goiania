@@ -14,7 +14,7 @@ Página estática (HTML/CSS/JS vanilla, sem build), pra carregar rápido no wifi
 ## Estrutura
 
 ```
-index.html    landing + modal de inscrição (Netlify Forms)
+index.html    landing + widget de inscrição (TechConversa)
 styles.css    identidade Ionix
 assets/       arte do evento, retrato do palestrante, logos e favicons
 arte/         fonte da arte do evento (HTML) + os formatos exportados
@@ -50,7 +50,7 @@ Site estático, sem build e sem dependência. O `netlify.toml` já traz
 
 **Opção A — conectar este repo no Netlify (recomendado)**
 
-Add new site → Import an existing project → GitHub → `IonixAdmin/spark-evento-goiania`.
+Add new site → Import an existing project → GitHub → `Ionix-Tech/spark-evento-goiania`.
 Não precisa preencher build command nem publish directory: vêm do `netlify.toml`.
 A partir daí, todo push na `main` republica sozinho.
 
@@ -63,23 +63,27 @@ netlify deploy --prod --dir=.
 
 ### Formulário de inscrição
 
-As inscrições usam **Netlify Forms** — `data-netlify="true"`, name
-`inscricao-evento-goiania`. O Netlify registra o form ao processar o HTML no
-deploy, então depois de subir vale conferir em **Site configuration → Forms**
-se `inscricao-evento-goiania` aparece na lista. É lá que caem as inscrições, e
-é lá que se liga a notificação por e-mail a cada envio.
+As novas inscrições usam o widget **TechConversa** configurado pela Maeli,
+formulário `Pr4lBjSN`. Os dois botões abrem o popup; caso o script não carregue,
+levam ao formulário direto: https://app.techconversa.com.br/form/Pr4lBjSN.
+Há também um link direto independente no rodapé. Links antigos com
+`#inscricao` são convertidos para `#form-Pr4lBjSN`.
 
-O formulário mantém nome, WhatsApp, e-mail, empresa, setor, cargo e faturamento.
-A comunicação inicial informada ao inscrito é feita somente por e-mail; o campo
-de WhatsApp permanece como dado de cadastro, sem promessa de contato por esse canal.
+Campos, obrigatoriedade, mensagem de sucesso e automações são geridos no
+TechConversa. A configuração aprovada mantém nome, WhatsApp, e-mail, empresa,
+setor e cargo obrigatórios; faturamento opcional; sem checkbox de consentimento.
+A mensagem do provedor anuncia comunicação por e-mail e WhatsApp.
+
+O envio antigo ao Netlify Forms foi removido da página. Nenhum registro antigo
+foi apagado ou migrado: consultar o histórico no Netlify separadamente.
+Após publicar, fazer uma inscrição real e confirmar o recebimento com a Maeli;
+abrir o popup não comprova gravação nem entrega das automações.
 
 ### Sobre o site que já está no ar
 
-A versão anterior roda em `papaya-squirrel-5dc4d7.netlify.app`. Se esse link já
-circulou, o caminho mais seguro é apontar **esse mesmo site** para este repo
-(Site configuration → Build & deploy → Link repository): o endereço continua
-valendo e as inscrições já recebidas seguem no mesmo form. Criando um site novo,
-o link muda e o histórico do form fica no site antigo.
+O site atual é https://eventoionixgoiania.netlify.app, conectado à main.
+Para atualização manual, usar a pasta `deploys/eventoionixgoiania-manual`
+do workspace, no projeto Netlify existente.
 
 ## Assets
 
